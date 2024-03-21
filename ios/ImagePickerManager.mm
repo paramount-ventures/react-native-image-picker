@@ -207,6 +207,8 @@ NSData* extractImageData(UIImage* image){
     if(phAsset){
         asset[@"timestamp"] = [self getDateTimeInUTC:phAsset.creationDate];
         asset[@"id"] = phAsset.localIdentifier;
+        asset[@"latitude"] = @(phAsset.location.coordinate.latitude);
+        asset[@"longitude"] = @(phAsset.location.coordinate.longitude);
         // Add more extra data here ...
     }
 
@@ -310,6 +312,8 @@ CGImagePropertyOrientation CGImagePropertyOrientationForUIImageOrientation(UIIma
         if(phAsset){
             response[@"timestamp"] = [self getDateTimeInUTC:phAsset.creationDate];
             response[@"id"] = phAsset.localIdentifier;
+            response[@"latitude"] = @(phAsset.location.coordinate.latitude);
+            response[@"longitude"] = @(phAsset.location.coordinate.longitude);
             // Add more extra data here ...
         }
     }
